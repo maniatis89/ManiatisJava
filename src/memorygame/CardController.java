@@ -63,7 +63,7 @@ public class CardController extends Card implements ActionListener
                  {
                      System.out.println("we had a match");//
                      round.updateMatches();//updates round INFO
-                     cardVector.removeAll(cardVector);
+                     cardVector.removeAll(cardVector);//after every action we clean the vector 
                  }
                  else
                  {
@@ -76,7 +76,7 @@ public class CardController extends Card implements ActionListener
                          
                          cardVector.get(0).cardHide();
                          cardVector.get(1).cardHide();
-                         cardVector.removeAll(cardVector);
+                         cardVector.removeAll(cardVector);//
                      
                      }
                  };
