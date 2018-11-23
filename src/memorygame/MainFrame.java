@@ -1,8 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    This class does the following
+    1)Creates the main frame
+    2)Creates the main panel 
+    3)Adds all menus and sub menus 
+    4)Adds listener to menus and submenus choices
+    5)Creates new Games
+*/
 package memorygame;
 
 import java.awt.BorderLayout;
@@ -124,6 +127,7 @@ public class MainFrame extends JFrame implements ActionListener
          File[] imageFiles = imageDirectory.listFiles();
          ArrayList<CardController> cards = new ArrayList<>();
          Card card , copy,copy1,copy2;
+         //check what game variation the user chooses and initialize the corresponding grid panel
          if(e.getActionCommand() == "single")
          {
             actionPanel.removeAll();
@@ -197,6 +201,7 @@ public class MainFrame extends JFrame implements ActionListener
            }
         
        }
+    //shuffle the cards and the put them to grid
        public void putCardsToGrid(ArrayList<CardController> cards,int rows ,int columns)
        {
                 Collections.shuffle(cards);
