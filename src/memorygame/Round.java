@@ -27,7 +27,7 @@ public  class Round
        
     }
     public int getGoal(){return this.ultimateGoal;}
-    public int getCardsNumber()
+    public int getCardsNumber()//how many cards are in the grid
     {
         return numOfCards;
     }
