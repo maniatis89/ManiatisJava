@@ -69,7 +69,7 @@ public class CardController extends Card implements ActionListener
                  {
                      
                      int delay = 400; //milliseconds
-                     ActionListener cardHider = new ActionListener() {
+                     ActionListener cardHider = new ActionListener() {//we provide a timer in order to add a delay before hiding both cards
                      @Override
                      public void actionPerformed(ActionEvent evt) 
                      {
