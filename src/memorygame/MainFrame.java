@@ -204,7 +204,7 @@ public class MainFrame extends JFrame implements ActionListener
     //shuffle the cards and the put them to grid
        public void putCardsToGrid(ArrayList<CardController> cards,int rows ,int columns)
        {
-                Collections.shuffle(cards);
+                //Collections.shuffle(cards);
                 for(CardController c:cards) 
                 {
                     actionPanel.add(c);

@@ -1,13 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+   The card controller is responsible for setting action listeners to card buttons
+   and defines what happens when two clicked Button cards are the same or not updating
+   as a result the players matched cards score and the number of moves
  */
 package memorygame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -45,37 +47,39 @@ public class CardController extends Card implements ActionListener
      public void actionPerformed(ActionEvent e) {
            //System.out.println("mpikame");
           
-          if(this.isRevealed() == false)
+          if(this.isRevealed() == false)//when the same card is clicked twice nothing happens
           {
                revealCard(); 
                
-               cardVector.add(this);
+               cardVector.add(this);//add this card to a list for comparing with previously added card
           }
           
-           if(((cardVector.size()) == 2))
+           if(((cardVector.size()) == 2))//when the list contains only 2 cards enter here
            {
                  System.out.println("mpikame");
-                 //aMove(cardVector.get(0),cardVector.get(1));
-                 if(cardVector.get(0).getCardId()==cardVector.get(1).getCardId())
+                 if(cardVector.get(0).getCardId()==cardVector.get(1).getCardId())//compares based on previously set ids
                  {
-                     System.out.println("we had a match");
-                     round.updateMatches();
+                     System.out.println("we had a match");//
+                     round.updateMatches();//updates round INFO
                      
                  }
                  else
                  {
-                     System.out.println("no match we hide cards");
+                     System.out.println("no match we hide cards");//if there is no match hide both opened cards
                      cardVector.get(0).cardHide();
                      cardVector.get(1).cardHide();
                      
                  }
-                cardVector.removeAll(cardVector);
+                cardVector.removeAll(cardVector);//reinitilize list to expect 2 cards
                 System.out.println(round.getMatches());
-                round.updateMovesNum();
+                round.updateMovesNum();//whether matched or not update the moves number
                 System.out.println(round.getMovesNum());
            }
-           if(round.getMatches()==(round.getCardsNumber()/2)) System.out.println("congrats");
-           
+           if(round.getMatches()==(round.getCardsNumber()/2)) //if you match all the cards you get this messaage 
+           {
+               System.out.println("Congrats!!!!!!!");    
+               JOptionPane.showMessageDialog(new JFrame(), "Well Done!!!! You finished matching cards after "+round.getMovesNum()+" moves");
+           }
            
     }
 
