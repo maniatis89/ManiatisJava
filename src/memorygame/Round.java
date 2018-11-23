@@ -11,20 +11,30 @@ package memorygame;
  */
 public  class Round 
 {
-    private static int matches,moves;
+    private  static int matches,moves;
     private int numOfCards;
+    private int gameVariation;
+    private int ultimateGoal;//matches to complete each game variation
     
-    public Round(int numOfCards)
+    public Round(int numOfCards,int gameVariation)
     {
         matches = 0;
         moves= 0;
         this.numOfCards =numOfCards;
+        this.gameVariation = gameVariation;
+        if(gameVariation == 1 || gameVariation == 3) this.ultimateGoal = 12;
+        else this.ultimateGoal = 24;
+       
     }
+    public int getGoal(){return this.ultimateGoal;}
     public int getCardsNumber()
     {
         return numOfCards;
     }
-    
+    public int getGameVariation()
+    {
+        return gameVariation;
+    }
     public void updateMatches()
     {
         this.matches++;

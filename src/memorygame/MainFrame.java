@@ -48,6 +48,7 @@ public class MainFrame extends JFrame implements ActionListener
        private JMenu chooseGameVariation;
        private JMenuItem loadDeck ,singleGame,doubleGame,tripleGame,quit;
        private Round round;
+      
        
        
        public MainFrame()
@@ -135,7 +136,7 @@ public class MainFrame extends JFrame implements ActionListener
            // Card card,copy;
             layout = new GridLayout(4,6,5,5);
             actionPanel.setLayout(layout);
-            round = new Round(24);
+            round = new Round(24,1);
             for(int i = 0; i<12; ++i)
             {
                  card = new CardController(round);
@@ -157,7 +158,7 @@ public class MainFrame extends JFrame implements ActionListener
             actionPanel.revalidate();
             layout = new GridLayout(6,8,5,5);
             actionPanel.setLayout(layout);
-            round = new Round(48);
+            round = new Round(48,2);
             for(int i = 0; i<24; ++i)
             {
                 // Card card,copy;
@@ -180,7 +181,7 @@ public class MainFrame extends JFrame implements ActionListener
             actionPanel.revalidate();
             layout = new GridLayout(6,8,5,5);
             actionPanel.setLayout(layout);
-            round = new Round(36);
+            round = new Round(36,3);
             for(int i = 0; i<12; ++i)
             {
                  //Card card,copy1,copy2;
@@ -204,7 +205,7 @@ public class MainFrame extends JFrame implements ActionListener
     //shuffle the cards and the put them to grid
        public void putCardsToGrid(ArrayList<CardController> cards,int rows ,int columns)
        {
-                Collections.shuffle(cards);
+                //Collections.shuffle(cards);
                 for(CardController c:cards) 
                 {
                     actionPanel.add(c);
